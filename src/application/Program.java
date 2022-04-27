@@ -18,6 +18,9 @@ public class Program {
                 System.out.println();
                 System.out.print("Origin: ");
                 ChessPosition origin = UI.readChessPosition(scanner);
+                boolean[][] possibleMoves = chessMatch.possibleMoves(origin);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
                 System.out.print("Target: ");
                 ChessPosition target = UI.readChessPosition(scanner);
                 ChessPiece capturedPiece = chessMatch.performChessMove(origin, target);
