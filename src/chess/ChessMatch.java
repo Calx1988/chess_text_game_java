@@ -39,6 +39,9 @@ public class ChessMatch {
         if(!board.thereIsPiece(position)){
             throw new ChessException("There's no piece in the origin position.");
         }
+        if (!board.piece(position).isThereAnyPossibleMove()) {
+            throw new ChessException("There's no possible moves for the chosen piece.");
+        }
     }
 
     private Piece makeMove(Position origin, Position target){
@@ -53,6 +56,12 @@ public class ChessMatch {
         placeNewPiece('a',1,new Rook(board,Color.BLACK));
         placeNewPiece('h',1,new Rook(board,Color.BLACK));
         placeNewPiece('e',1,new King(board,Color.BLACK));
+        placeNewPiece('d',1,new Rook(board,Color.BLACK));
+        placeNewPiece('f',1,new Rook(board,Color.BLACK));
+        placeNewPiece('d',2,new Rook(board,Color.BLACK));
+        placeNewPiece('f',2,new Rook(board,Color.BLACK));
+        placeNewPiece('e',2,new Rook(board,Color.BLACK));
+
         //white pieces
         placeNewPiece('a',8,new Rook(board,Color.WHITE));
         placeNewPiece('h',8,new Rook(board,Color.WHITE));
